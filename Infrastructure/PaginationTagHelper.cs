@@ -48,6 +48,7 @@ namespace Bookstore.Infrastructure
                     tb.AddCssClass(i == PageBlah.CurrentPage /*added*/
                     ? PageClassSelected : PageClassNormal); /*added*/
                 }
+                tb.AddCssClass(PageClass);
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);

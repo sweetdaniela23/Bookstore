@@ -24,7 +24,7 @@
         </h4>
     </div>
     <form method="post" asp-page="/Select">
-        <input type="hidden" asp-for="@Model.Category" />
+        <input type="hidden" asp-for="@Model.BookId" />
 
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
         <span class="card-text">

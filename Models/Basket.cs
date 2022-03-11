@@ -47,7 +47,7 @@ namespace Bookstore.Models
             [Key]
             public int LineID { get; set; }
             public Book Book { get; set; }
-            public string Title { get; set; } //added
+            //public string Title { get; set; } //added
             public int Quantity { get; set; }
         }
 

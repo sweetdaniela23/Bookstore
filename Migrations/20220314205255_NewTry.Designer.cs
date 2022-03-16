@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bookstore.Migrations
 {
     [DbContext(typeof(BookstoreContext))]
-    [Migration("20220302160728_AddPurchasesTable")]
-    partial class AddPurchasesTable
+    [Migration("20220314205255_NewTry")]
+    partial class NewTry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,7 @@ namespace Bookstore.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
-            modelBuilder.Entity("Bookstore.Models.Basket+BasketLineItem", b =>
+            modelBuilder.Entity("Bookstore.Models.BasketLineItem", b =>
                 {
                     b.Property<int>("LineID")
                         .ValueGeneratedOnAdd()
@@ -111,6 +111,9 @@ namespace Bookstore.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("PurchaseReceived")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -123,7 +126,7 @@ namespace Bookstore.Migrations
                     b.ToTable("Purchases");
                 });
 
-            modelBuilder.Entity("Bookstore.Models.Basket+BasketLineItem", b =>
+            modelBuilder.Entity("Bookstore.Models.BasketLineItem", b =>
                 {
                     b.HasOne("Bookstore.Models.Book", "Book")
                         .WithMany()

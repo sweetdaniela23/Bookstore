@@ -84,7 +84,7 @@
     public IBookstoreRepository repo => Service;
     protected override void OnParametersSet()
     {
-        if (b.BookId != 0)
+        if (Id != 0)
         {
             b = repo.Books.FirstOrDefault(x => x.BookId == Id);
         }

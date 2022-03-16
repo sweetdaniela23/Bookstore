@@ -10,12 +10,12 @@ namespace Bookstore.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
-        public virtual void AddItem (Book book, int qty)
+        public virtual void AddItem(Book book, int qty)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
                 .FirstOrDefault();
-            if(line == null)
+            if (line == null)
             {
                 Items.Add(new BasketLineItem
                 {
@@ -42,14 +42,16 @@ namespace Bookstore.Models
             return sum;
         }
 
-        public class BasketLineItem
-        {
-            [Key]
-            public int LineID { get; set; }
-            public Book Book { get; set; }
-            //public string Title { get; set; } //added
-            public int Quantity { get; set; }
-        }
-
     }
+    public class BasketLineItem
+    {
+        [Key]
+        public int LineID { get; set; }
+        public Book Book { get; set; }
+        //public string Title { get; set; } //added
+        public int Quantity { get; set; }
+    }
+
+
+    
 }

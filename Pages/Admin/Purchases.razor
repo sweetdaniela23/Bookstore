@@ -1,9 +1,11 @@
 ﻿@page "/admin/purchases"
+@page "/admin"
 
 @inherits OwningComponentBase<IPurchaseRepository>
 
 <PurchaseTable TableTitle="Unshipped Purchases" Purchases="UnshippedPurchases" ButtonLabel="Shipped" PurchaseSelected="ShipPurchase"></PurchaseTable>
 <PurchaseTable TableTitle="Shipped Purchases" Purchases="ShippedPurchases" ButtonLabel="Reset" PurchaseSelected="ResetPurchase"></PurchaseTable>
+
 
 <button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
 
@@ -29,7 +31,8 @@
 
     public void ShipPurchase(int id) => UpdatePurchase(id, true);
     public void ResetPurchase(int id) => UpdatePurchase(id, false);
-    private void UpdatePurchase (int id, bool shipped)
+
+    private void UpdatePurchase(int id, bool shipped)
     {
         Purchase p = repo.Purchases.FirstOrDefault(x => x.PurchaseId == id);
         p.PurchaseReceived = shipped;

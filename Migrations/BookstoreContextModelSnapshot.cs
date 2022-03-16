@@ -16,7 +16,7 @@ namespace Bookstore.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
-            modelBuilder.Entity("Bookstore.Models.Basket+BasketLineItem", b =>
+            modelBuilder.Entity("Bookstore.Models.BasketLineItem", b =>
                 {
                     b.Property<int>("LineID")
                         .ValueGeneratedOnAdd()
@@ -30,9 +30,6 @@ namespace Bookstore.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("LineID");
 
@@ -127,7 +124,7 @@ namespace Bookstore.Migrations
                     b.ToTable("Purchases");
                 });
 
-            modelBuilder.Entity("Bookstore.Models.Basket+BasketLineItem", b =>
+            modelBuilder.Entity("Bookstore.Models.BasketLineItem", b =>
                 {
                     b.HasOne("Bookstore.Models.Book", "Book")
                         .WithMany()
